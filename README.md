@@ -49,9 +49,11 @@ An Example Plan Item:
 (_above is a link to the first draft of my Schemas in db.js_)
 
 ## Wireframes
-
+Home Page of "I'd Rather Be..."
 ![Alt text](/documentation/Home_page.jpg?raw=true "Home page")
+Creating a new Rather...
 ![Alt text](/documentation/New_Rather.jpg?raw=true "Creating a new Rather")
+Page to display all Rathers...
 ![Alt text](/documentation/Rather_Page.jpg?raw=true "Page to display all Rathers")
 
 

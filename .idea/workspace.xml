@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54caba35-f7b0-42a0-9c06-7808e1e11911" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/documentation/list-create.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/documentation/list-slug.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/documentation/list.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -26,8 +23,8 @@
       <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="796">
-              <caret line="94" column="25" lean-forward="false" selection-start-line="94" selection-start-column="25" selection-end-line="94" selection-end-column="25" />
+            <state relative-caret-position="211">
+              <caret line="55" column="30" lean-forward="false" selection-start-line="55" selection-start-column="30" selection-end-line="55" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -257,12 +254,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1490796955213</updated>
-      <workItem from="1490796956572" duration="5665000" />
+      <workItem from="1490796956572" duration="5744000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5665000" />
+    <option name="totallyTimeSpent" value="5744000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="92" y="23" width="1188" height="728" extended-state="0" />
@@ -338,8 +335,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="796">
-          <caret line="94" column="25" lean-forward="false" selection-start-line="94" selection-start-column="25" selection-end-line="94" selection-end-column="25" />
+        <state relative-caret-position="211">
+          <caret line="55" column="30" lean-forward="false" selection-start-line="55" selection-start-column="30" selection-end-line="55" selection-end-column="30" />
           <folding />
         </state>
       </provider>
