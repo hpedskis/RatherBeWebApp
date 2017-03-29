@@ -20,14 +20,14 @@ The application will store Users, Lists and Items
 * 'rathers' can be created
 * 'rathers' can have a scheme/plan (by embedding)
 
-(___TODO__: sample documents_)
+(_sample documents_)
 
 An Example 'Rather':
 
 ```javascript
 {
   type: "be eating", //this is an object
-  what: "steak",
+  thing: "steak",
   date:  3/29/17 //day that they created the rather
   reason: "no money" //this is another object
 
@@ -44,16 +44,20 @@ An Example Plan Item:
 ```
 
 
-## [Link to Commented First Draft Schema](db.js) 
+## [Link to Commented First Draft Schema](db.js)
 
-(_create a first draft of your Schemas in db.js and link to it_)
+(_above is a link to the first draft of my Schemas in db.js_)
 
 ## Wireframes
+
+![Alt text](/documentation/Home_page.jpg?raw=true "Home page")
+![Alt text](/documentation/New_Rather.jpg?raw=true "Creating a new Rather")
+![Alt text](/documentation/Rather_Page.jpg?raw=true "Page to display all Rathers")
 
 
 ## Site map
 
-(___TODO__: draw out a site map that shows how pages are related to each other_)
+(_draw out a site map that shows how pages are related to each other_)
 
 Here's a [complex example from wikipedia](https://upload.wikimedia.org/wikipedia/commons/2/20/Sitemap_google.jpg), but you can create one without the screenshots, drop shadows, etc. ... just names of pages and where they flow to.
 
@@ -87,6 +91,5 @@ Here's a [complex example from wikipedia](https://upload.wikimedia.org/wikipedia
 
 ## Annotations / References Used
 
-(___TODO__: list any tutorials/references/etc. that you've based your code off of_)
-
-1. [for Angular 2]: http://campus.codeschool.com/courses/accelerating-through-angular/level/1/section/1/first-component
+(_list any tutorials/references/etc. that you've based your code off of_)
+1. for Learning Angular 2: http://campus.codeschool.com/courses/accelerating-through-angular/level/1/section/1/first-component
