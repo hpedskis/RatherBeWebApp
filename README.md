@@ -1,24 +1,19 @@
 The content below is an example project proposal / requirements document. Replace the text below the lines marked "__TODO__" with details specific to your project. Remove the "TODO" lines.
 
-(_your project name_)
-
 # I'd Rather Be...
 
 ## Overview
 
-(_a brief one or two paragraph, high-level description of your project_)
 A place to keep track of all the things you'd rather be doing, eating, or seeing than whatever you're currently doing!
 'I'd Rather Be' is a convenient place to view all the things that you once dreamed of. You can also categorize them,
-explain why you're not fulfilling the dream, and scheme a way to make that dream a reality.
+explain why you're not fulfilling the dream, and plan a way to make that dream a reality.
 
 ## Data Model
-
-(_a description of your application's data and their relationships to each other_)
 
 The application will store Users, Lists and Items
 
 * 'rathers' can be created
-* 'rathers' can have a scheme/plan (by embedding)
+* 'rathers' can have a plan
 
 (_sample documents_)
 
@@ -30,6 +25,7 @@ An Example 'Rather':
   thing: "steak",
   date:  3/29/17 //day that they created the rather
   reason: "no money" //this is another object
+  plan: Plan
 
 }
 ```
@@ -46,7 +42,6 @@ An Example Plan Item:
 
 ## [Link to Commented First Draft Schema](db.js)
 
-(_above is a link to the first draft of my Schemas in db.js_)
 
 ## Wireframes
 Home Page of "I'd Rather Be..."
@@ -59,28 +54,31 @@ Page to display all Rathers...
 
 ## Site map
 
-(_draw out a site map that shows how pages are related to each other_)
+Home page -----------> new Rather form
+           or----------->  page of all Rathers
 
-Here's a [complex example from wikipedia](https://upload.wikimedia.org/wikipedia/commons/2/20/Sitemap_google.jpg), but you can create one without the screenshots, drop shadows, etc. ... just names of pages and where they flow to.
+new Rather form ---------> specified new Rather page, depending on category --------> page of all rathers
+
+page of all rathers ---------> new Rather form
+
 
 ## User Stories or Use Cases
 
-(___TODO__: write out how your application will be used through [user stories](http://en.wikipedia.org/wiki/User_story#Format) and / or [use cases](https://www.mongodb.com/download-center?jmp=docs&_ga=1.47552679.1838903181.1489282706#previous)_)
-
 1. as someone entering the website, I can see the homepage, a form to create a rather
-2. as someone entering the website, I can click a link to instead see all previously created rathers
-3. as someone entering the website, I can follow the form to create a rather, selecting different categories
-4. as someone entering the website, I can create a plan to fulfil my rather
-5. as someone entering the website, I can click on one rather to see it in detail
+2. as someone entering the website, I can follow the form to create a rather, selecting different categories
+3. as someone entering the website, I can create a plan to fulfil my rather
+4. as someone entering the website, I can easily navigate to see all previously created rathers
+5. as someone entering the website, I can click to create a rather from the page viewing all rathers
+
+
 
 ## Research Topics
-
-(___TODO__: the research topics that you're planning on working on along with their point values... and the total points of research topics listed_)
 
 * (6 points) Use AngularJS
     * I'm going to follow some tutorials and learn Angular 2 and integrate it
     *I'm not sure exactly where I'll use it yet, but I need to learn Angular for my summer internship
-        so I will for sure do this!
+      so I will for sure do this!
+
 * (3 points) Unit Testing with JS
     * will use Mocha to create unit tests
 
@@ -88,8 +86,6 @@ Here's a [complex example from wikipedia](https://upload.wikimedia.org/wikipedia
 
 
 ## [Link to Initial Main Project File](app.js) 
-
-(___TODO__: create a skeleton Express application with a package.json, app.js, views folder, etc. ... and link to your initial app.js_)
 
 ## Annotations / References Used
 
