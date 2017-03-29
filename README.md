@@ -76,8 +76,9 @@ page of all rathers ---------> new Rather form
 
 * (6 points) Use AngularJS
     * I'm going to follow some tutorials and learn Angular 2 and integrate it
-    *I'm not sure exactly where I'll use it yet, but I need to learn Angular for my summer internship
-      so I will for sure do this!
+    * AngularJS a client-side framework which can provide a lot of great things like templating, data-binding, and clean
+    modular code. I mostly want to use AngularJS because I need to learn it for my summer internship but I also think it's
+    a good real world skill to have.
 
 * (3 points) Unit Testing with JS
     * will use Mocha to create unit tests
