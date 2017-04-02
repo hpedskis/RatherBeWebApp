@@ -28,6 +28,7 @@ router.get('/', function(req, res, next) {
 
 //new eat, new visit, new watch, new random etc
 router.post('/new/rather/general', function(req, res, next){
+
   if(req.body.type === 'food'){
       res.redirect('/new/food');
   }else if (req.body.type === 'visit'){
@@ -40,11 +41,24 @@ router.post('/new/rather/general', function(req, res, next){
       res.redirect('/new/random');
 
   }
+
 });
 
 router.get('/new/food', function(req, res, next) {
-  console.log('inside get /new/food boutta DISPLAY IT');
+  console.log('inside get /new/food boutta GET IT');
     res.render('food');
+});
+router.post('/new/food', function(req, res, next) {
+    console.log('inside POST /new/food boutta POST IT');
+    new Rather({
+        type: "food",
+        what: req.body.what,
+        reason: req.body.reason
+
+    }).save(function(err, rather){
+        res.render('rathers');
+    });
+
 });
 
 router.get('/new/visit', function(req, res, next) {
