@@ -1,10 +1,9 @@
 const express = require('express');
 const router = express.Router();
-
 const mongoose = require('mongoose');
 const Rather = mongoose.model('Rather');
-const Plan = mongoose.model('Plan');
-
+const Plan = mongoose.model('User');
+const Vue = require('vue');
 
 
 const Type ={
@@ -20,6 +19,7 @@ const Reason = {
     'transportation': {name: "No transportation", display: "travel is hard"},
     'obligations' : {name: "I have real things to do", display: 'other things need my time'}
 };
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -46,6 +46,12 @@ router.post('/new/rather/general', function(req, res, next){
 
 router.get('/new/food', function(req, res, next) {
   console.log('inside get /new/food boutta GET IT');
+  new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue.js!'
+        }
+    })
     res.render('food');
 });
 router.post('/new/food', function(req, res, next) {
@@ -53,10 +59,14 @@ router.post('/new/food', function(req, res, next) {
     new Rather({
         type: "food",
         what: req.body.what,
-        reason: req.body.reason
+        reason: req.body.reason,
+        plan: req.body.plan
 
     }).save(function(err, rather){
-        res.render('rathers');
+        if(err){
+            console.log(err);
+        }
+        res.redirect("/");
     });
 
 });
@@ -73,4 +83,9 @@ router.get('/new/random', function(req, res, next) {
     res.render('index', { title: 'I\'d Rather Be... '});
 });
 
+router.get('/rathers',function(req, res, next) {
+    Rather.find(function (err, rather) {
+        res.render('rathers', {rather: rather})
+    })
+});
 module.exports = router;

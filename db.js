@@ -4,9 +4,9 @@ const Schema = mongoose.Schema;
 
 // my schema goes here!
 
-const Plan = new Schema({
-    plan: String,
-    goalDate: Date
+const User = new Schema({
+    username: {type: String, unique: true},
+    password: String
 });
 
 const Rather = new Schema({
@@ -14,13 +14,13 @@ const Rather = new Schema({
     what: String,
     date: Date,
     reason: String,
-    plans: [Plan]
+    plans: String
 
 });
 
 
 mongoose.model('Rather', Rather);
-mongoose.model('Plan', Plan);
+mongoose.model('User', User);
 
 // is the environment variable, NODE_ENV, set to PRODUCTION?
 if (process.env.NODE_ENV == 'PRODUCTION') {

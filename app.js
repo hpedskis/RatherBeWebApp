@@ -9,21 +9,10 @@ const db = require( './db.js' );
 
 const index = require('./routes/index');
 
-
 // view engine setup
-
+// view engine setup
 app.set('views', path.join(__dirname, 'views'));
-
-// Code below is from http://stackoverflow.com/questions/17911228/how-do-i-use-html-as-the-view-engine-in-express
-//to fix issue of html not rendering when changing from hbs to html.
-
-const cons = require('consolidate');
-
-app.engine('html', cons.swig);
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'html');
-
-// end of stackoverflow code
+app.set('view engine', 'hbs');
 
 
 app.use(logger('dev'));
@@ -31,7 +20,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(__dirname + '/public'));
+
 
 app.use('/', index);
 
@@ -52,5 +41,8 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+
 
 module.exports = app;
