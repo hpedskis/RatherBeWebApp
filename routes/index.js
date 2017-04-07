@@ -3,7 +3,6 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const Rather = mongoose.model('Rather');
 const Plan = mongoose.model('User');
-const Vue = require('vue');
 
 
 const Type ={
@@ -46,12 +45,6 @@ router.post('/new/rather/general', function(req, res, next){
 
 router.get('/new/food', function(req, res, next) {
   console.log('inside get /new/food boutta GET IT');
-  new Vue({
-        el: '#app',
-        data: {
-            message: 'Hello Vue.js!'
-        }
-    })
     res.render('food');
 });
 router.post('/new/food', function(req, res, next) {
