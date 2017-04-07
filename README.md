@@ -10,10 +10,10 @@ explain why you're not fulfilling the dream, and plan a way to make that dream a
 
 ## Data Model
 
-The application will store Users, Lists and Items
+The application will store Users and Rathers that the User has created
 
 * 'rathers' can be created
-* 'rathers' can have a plan
+* 'users' have a list of 'rathers'
 
 (_sample documents_)
 
@@ -30,12 +30,12 @@ An Example 'Rather':
 }
 ```
 
-An Example Plan Item:
+An Example User Item:
 
 ```javascript
 {
-  plan: "I'm going to go get a job and make the money so I can afford that steak"
-  goalDate: day when they hope to have the plan completed
+  username: dreamer_hannah_05
+  password: idratherbe
 }
 ```
 
@@ -54,8 +54,10 @@ Page to display all Rathers...
 
 ## Site map
 
-Home page -----------> new Rather form
-           or----------->  page of all Rathers
+Home page -----------> Login
+           or----------->  Register
+Login/Register --------> new Rather form
+            hyperlink to --------> page of their previously made rathers
 
 new Rather form ---------> specified new Rather page, depending on category --------> page of all rathers
 
@@ -64,31 +66,28 @@ page of all rathers ---------> new Rather form
 
 ## User Stories or Use Cases
 
-1. as someone entering the website, I can see the homepage, a form to create a rather
-2. as someone entering the website, I can follow the form to create a rather, selecting different categories
-3. as someone entering the website, I can create a plan to fulfil my rather
-4. as someone entering the website, I can easily navigate to see all previously created rathers
-5. as someone entering the website, I can click to create a rather from the page viewing all rathers
+1. as someone entering the website, I can login or register to create an account
+2. as a user, I can follow the form to create a rather, selecting different categories
+3. as a user, I can create a plan to fulfil my rather
+4. as a user, I can easily navigate to see all previously created rathers
+5. as a user, I can click to create a rather from the page viewing all rathers
 
 
 
 ## Research Topics
 
-* (6 points) Use AngularJS
-    * I'm going to follow some tutorials and learn Angular 2 and integrate it
-    * AngularJS a client-side framework which can provide a lot of great things like templating, data-binding, and clean
-    modular code. I mostly want to use AngularJS because I need to learn it for my summer internship but I also think it's
-    a good real world skill to have.
+* (5 points) User authentication
+    * will have login and registration
+    * passwords will be salted and hashed 
+    * rathers will only be able to be seen after login
 
 * (3 points) Unit Testing with JS
     * will use Mocha to create unit tests
 
-9 points total out of 8 required points
+8 points total out of 8 required points
 
 
 ## [Link to Initial Main Project File](app.js) 
 
 ## Annotations / References Used
 
-(_list any tutorials/references/etc. that you've based your code off of_)
-1. for Learning Angular 2: http://campus.codeschool.com/courses/accelerating-through-angular/level/1/section/1/first-component
