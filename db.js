@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const passportLocalMongoose = require('passport-local-mongoose');
 //const URLSlugs = require('mongoose-url-slugs');
 
 // my schema goes here!
@@ -14,16 +15,18 @@ const Rather = new Schema({
 
 });
 
+//don't need to keep track of username or password becaue passport-mongoose will do that for me
 const User = new Schema({
-    username: {type: String, unique: true},
-    password: String,
     rathers: [Rather]
 });
 
-
-
+//this plugin inserts username, password, and salt
+User.plugin(passportLocalMongoose);
 mongoose.model('Rather', Rather);
 mongoose.model('User', User);
+
+// User.register (creating a new user)
+// User.authenticate (strategy)
 
 // is the environment variable, NODE_ENV, set to PRODUCTION?
 if (process.env.NODE_ENV == 'PRODUCTION') {
