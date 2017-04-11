@@ -4,10 +4,6 @@ const Schema = mongoose.Schema;
 
 // my schema goes here!
 
-const User = new Schema({
-    username: {type: String, unique: true},
-    password: String
-});
 
 const Rather = new Schema({
     type: String,
@@ -17,6 +13,13 @@ const Rather = new Schema({
     plans: String
 
 });
+
+const User = new Schema({
+    username: {type: String, unique: true},
+    password: String,
+    rathers: [Rather]
+});
+
 
 
 mongoose.model('Rather', Rather);

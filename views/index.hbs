@@ -1,4 +1,10 @@
-
+{{#if user}}
+    <h3>Welcome {{user.username}}</h3>
+    <br>
+    <a href="/">go back home</a>
+{{else}}
+    You're not signed in!
+{{/if}}
 <p>Welcome to I'd RATHER be..., where you can conviniently keep track of all the things you'd rather be doing, eating,
     watching, or visiting than whatever you're currently doing. Fill out a "Rather" below or view all the previously created
     rathers</p>
@@ -16,4 +22,4 @@
 
 </div>
 
-<a href="rathers">Click here to see all the rathers!!</a>
+<a href="/rathers">Click here to see all the rathers!!</a>

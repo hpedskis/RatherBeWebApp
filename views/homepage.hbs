@@ -1,0 +1,12 @@
+<h1>I'd Rather be....</h1>
+<p>Welcome to I'd rather be, where you can conveniently keep track of all the things you'd rather be doing, eating,
+    watching, or visiting than whatever you're currently doing. Login or create an account to get started!!</p>
+{{#if user}}
+    <h3>Welcome {{user.username}}</h3>
+    <br>
+    <a href="rathers">Click here to see all your Rathers</a>
+{{else}}
+    <a href="register">register</a> or <a href="login">login</a>
+    <br>
+
+{{/if}}

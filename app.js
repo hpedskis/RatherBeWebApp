@@ -6,20 +6,25 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const app = express();
 const db = require( './db.js' );
-
 const index = require('./routes/index');
 
-// view engine setup
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
+const session = require('express-session');
+const sessionOptions = {
+    secret: 'secret!',
+    resave: true,
+    saveUninitialized: true
+};
+app.use(session(sessionOptions));
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname,'public')));
 
 
 app.use('/', index);
