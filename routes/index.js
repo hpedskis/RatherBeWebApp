@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const Rather = mongoose.model('Rather');
 const User = mongoose.model('User');
-const bcrypt = require('bcryptjs');
 
 
 const Type ={
@@ -55,55 +54,7 @@ router.post('/register', function(req, res) {
             }
         });
 });
-/*/
-router.post('/register', function(req, res, next) {
-    if(req.body.password.length < 8){
-        console.log("password less thant 8 characters");
-        res.render('register', {message: "your password needs to be longer than 8 characters!"});
-    }
-    User.findOne({username: req.body.username}, function(err, user){
-        if(user){
-            res.render('error', {message: "you're already registered!"});
-        }
-    });
-    //at this point, we know the password is correct and the user is not registered.
-    const saltRounds = 10;
-    const myPlaintextPassword = req.body.password;
-    bcrypt.genSalt(saltRounds, function(err, salt) {
-        if(err){
-            console.log("erros making salt");
-        }
-        bcrypt.hash(myPlaintextPassword, salt, function(err, hash) {
-            if(err){
-                console.log("errors making hash");
-            }
-            // Store hash in your password DB.
-            new User({
-                username: req.body.username,
-                password: hash
-            }).save(function(err, user){
-                if(err){
-                    res.render('error', {message: "something went wrong with registration"});
-                }else {
-                    req.session.regenerate((err) => {
-                        if (!err) {
-                            req.session.user = user;
-                            console.log('user is now ' + user);
-                            req.session.username = user.username;
-                        } else {
-                            console.log('error');
-                            res.send('an error occurred, please see the server logs for more information');
-                        }
-                        res.render('index', {user: user});
-                    });
-                }
 
-            })
-        });
-    });
-
-});
-/*/
 
 //login to account
 router.get('/login', function(req, res, next) {
@@ -156,24 +107,14 @@ router.post('/new/rather/general', function(req, res, next){
 
 router.get('/new/rather/general', function(req, res, next){
     console.log('inside GET new/rather/general');
-    passport.authenticate('local', function(err,user) {
-        if(user) {
-            console.log(user);
-            req.logIn(user, function(err) {
-                res.render('index', {user: user});
-            });
+        if(req.user) {
+            console.log(req.user);
+            res.render('index', {user: req.user});
+
         } else {
             res.render('error', {message:'to make a new rather, you must have an account'});
         }
-    })(req, res, next);
 
-    /*/
-    if(req.session.user){
-        res.render('index', {user: req.session.user});
-    }else{
-        res.render('error', {message: "to make a new rather, you must have an account"});
-    }
-    /*/
 });
 
 
@@ -265,7 +206,7 @@ router.post('/new/watch', function(req, res, next) {
     console.log('inside POST /new/watch boutta POST IT');
     console.log(req.user);
     console.log('**name of thing to watch is: ' + req.body.what);
-    User.findOne({username: req.session.username}, function(err, user){
+    User.findOne({username: req.user.username}, function(err, user){
         new Rather({
             type: "watch",
             what: req.body.what,
