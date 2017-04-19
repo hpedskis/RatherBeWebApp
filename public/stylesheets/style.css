@@ -1,8 +1,43 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
 }
 
 a {
   color: #00B7FF;
+}
+
+.each{
+  color: cadetblue;
+  display: inline-block;
+  width: 300px;
+  height: 200px;
+  background-color: aliceblue;
+}
+.each2{
+  color:cadetblue;
+  display: inline-block;
+  width: 300px;
+  height: 200px;
+  background-color: peachpuff;
+}
+.each3{
+  color: cadetblue;
+  display: inline-block;
+  width: 300px;
+  height: 200px;
+  background-color: palegoldenrod;
+}
+.each4{
+  color: cadetblue;
+  display: table-cell;
+  width: 300px;
+  height: 200px;
+  background-color: darkslategray;
+}
+
+.random img{
+  max-width: 300px;
+  max-height: 300px;
 }

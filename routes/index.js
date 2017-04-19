@@ -5,20 +5,8 @@ const passport = require('passport');
 const Rather = mongoose.model('Rather');
 const User = mongoose.model('User');
 
-
-const Type ={
-    'food' : {name: "be eating", image: '/public/images/food_1.gif'},
-    'visit': {name: "be visiting", image: '/public/images/visit_1.gif'},
-    'watch' : {name: "be watching", image: '/public/images/watch_1.gif'},
-    'random': {name: "be entertained?",  image: '/public/images/rando_1.gif'}
-};
-
-const Reason = {
-    'money' : {name: "I don't have the money", display: "short on cash"},
-    'health': {name: "I'm working on my bod' ", display: "workin' on that bod"},
-    'transportation': {name: "No transportation", display: "travel is hard"},
-    'obligations' : {name: "I have real things to do", display: 'other things need my time'}
-};
+const pics = ['/images/food_1.gif', '/images/food_2.gif', '/images/rando_1.gif', '/images/visit_1.gif', '/images/watch_1.gif',
+    '/images/watch_2.gif', '/images/random2.gif', '/images/random3.gif', '/images/random4.gif'];
 
 
 /* GET home page. */
@@ -98,7 +86,7 @@ router.post('/new/rather/general', function(req, res, next){
                 }
 
         } else {
-            res.render('error', {message:'to make a new rather, you must have an account'});
+            res.redirect('/login', {message:'to make a new rather, you must have an account'});
         }
 
 
@@ -112,7 +100,8 @@ router.get('/new/rather/general', function(req, res, next){
             res.render('index', {user: req.user});
 
         } else {
-            res.render('error', {message:'to make a new rather, you must have an account'});
+            console.log('error');
+            res.render('login', {message:'to make a new rather, you must have an account'});
         }
 
 });
@@ -158,7 +147,7 @@ router.post('/new/food', function(req, res, next) {
 
 router.get('/new/visit', function(req, res, next) {
     if(req.user){
-        res.render('visit', {user: req.user});
+        res.render('visit');
 
     } else {
         res.render('error', {message: 'UH-OH... to make a new rather, you must have an account'});
@@ -169,7 +158,7 @@ router.post('/new/visit', function(req, res, next) {
     console.log('inside POST /new/visit boutta POST IT');
     console.log(req.user);
     console.log('**name of place is: ' + req.body.what);
-    User.findOne({username: req.session.username}, function(err, user){
+    User.findOne({username: req.user.username}, function(err, user){
         new Rather({
             type: "visit",
             what: req.body.what,
@@ -195,7 +184,7 @@ router.post('/new/visit', function(req, res, next) {
 
 router.get('/new/watch', function(req, res, next) {
     if(req.user){
-        res.render('watch', {user: req.user});
+        res.render('watch');
 
     } else {
         res.render('error', {message: 'UH-OH... to make a new rather, you must have an account'});
@@ -233,14 +222,14 @@ router.post('/new/watch', function(req, res, next) {
 router.get('/new/random', function(req, res, next) {
     if(req.user){
         User.findOne({username: req.user.username}, function(err, user) {
+            let picNum = Math.floor((Math.random() * 8));
             new Rather({
                 type: "random",
-                what: "*insert fun gif here*",
+                what: pics[picNum],
                 reason: "gotta escape life",
-                plan: "COMING SOON"
+                plan: "Don't need one"
 
             }).save(function (err, rather) {
-
                 user.rathers.push(rather);
                 user.save((err, user) => {
                     console.log("just saved");
@@ -263,7 +252,23 @@ router.get('/rathers',function(req, res, next) {
         console.log(req.user);
         User.findOne({username: req.user.username}, function (err, user) {
             console.log("inside user trying to find rathers");
-            res.render('rathers', {user: user});
+            //create an array for each type of rather to organize based on that?
+            let food = [];
+            let visit = [];
+            let watch = [];
+            let random = [];
+            user.rathers.forEach((ele)=>{
+                if(ele.type === 'food'){
+                    food.push(ele);
+                } else if(ele.type === 'visit'){
+                    visit.push(ele);
+                } else if(ele.type === 'watch'){
+                    watch.push(ele);
+                }else{
+                    random.push(ele);
+                }
+            });
+            res.render('rathers', {foodRather: food, visitRather: visit, watchRather: watch, randomRather: random});
         });
     }else{
         res.render('error', {message: 'looks live you\'ve been logged out!'});

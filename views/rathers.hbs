@@ -1,8 +1,58 @@
-<ol>
-    {{#each user.rathers as |rather|}}
-        <li> {{rather.type}} : {{rather.what}}
+<body>
+
+<ol class = "food">
+    {{#if foodRather}}
+        <h3>Food Rathers:</h3>
+    {{#each foodRather as |food|}}
+        <li class = "each"> Id' MUCH rather be eating {{food.what}}
+            but I can't because {{food.reason}}
+            <br>
+            Plan to achieve this: {{food.plan}}
         </li>
     {{/each}}
+    {{/if}}
+
+</ol>
+
+
+<ol class = "visit">
+{{#if visitRather}}
+    <h3>Visit Rathers:</h3>
+    {{#each visitRather as |visit|}}
+        <li class = "each2"> I'd so much rather be visiting {{visit.what}}
+            but I can't because {{visit.reason}}
+            <br>
+            plan to achieve: {{visit.plan}}
+        </li>
+    {{/each}}
+{{/if}}
+</ol>
+
+
+<ol class = "watch">
+{{#if watchRather}}
+    <h3>Watch Rathers:</h3>
+    {{#each watchRather as |watch|}}
+        <li class = "each3"> I really would rather be watching {{watch.what}}
+            but I can't because {{watch.reason}}
+            <br>
+            plan to achieve: {{watch.plan}}
+        </li>
+    {{/each}}
+{{/if}}
+</ol>
+
+
+<ol class = "random">
+{{#if randomRather}}
+    <h3>Random:</h3>
+    {{#each randomRather as |random|}}
+        <li class = "each4"> <img src ={{random.what}}>
+        </li>
+    {{/each}}
+{{/if}}
 </ol>
 
 <a href = "/new/rather/general"> Make another rather</a>
+
+</body>

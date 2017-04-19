@@ -11,7 +11,7 @@ const Rather = new Schema({
     what: String,
     date: Date,
     reason: String,
-    plans: String
+    plan: String
 
 });
 
