@@ -6,6 +6,10 @@ body {
 
 a {
   color: #00B7FF;
+  background-color: aqua;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .each{
@@ -32,6 +36,7 @@ a {
 .each4{
   color: cadetblue;
   display: table-cell;
+  float: left;
   width: 300px;
   height: 200px;
   background-color: darkslategray;
