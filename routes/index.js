@@ -11,9 +11,9 @@ const pics = ['/images/food_1.gif', '/images/food_2.gif', '/images/rando_1.gif',
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    if(req.session.user){
-        console.log('session username is ' + req.session.username);
-        res.render('homepage', {user: req.session.user});
+    if(req.user){
+        console.log('session username is ' + req.user.username);
+        res.render('homepage', {user: req.user});
     }else{
         res.render('homepage');
     }
@@ -55,7 +55,7 @@ router.post('/login', function(req, res, next) {
             // NOTE: using this version of authenticate requires us to
             // call login manually
             req.logIn(user, function(err) {
-                res.render('index', {user: user});
+                res.redirect('/new/rather/general');
             });
         } else {
             res.render('login', {message:'Your login or password is incorrect.'});
@@ -257,6 +257,27 @@ router.get('/rathers',function(req, res, next) {
             let visit = [];
             let watch = [];
             let random = [];
+            food = user.rathers.filter((ele)=>{
+                if(ele.type === 'food'){
+                    return ele;
+                }
+            });
+            visit = user.rathers.filter((ele)=>{
+                if(ele.type === 'visit'){
+                    return ele;
+                }
+            });
+            watch = user.rathers.filter((ele)=>{
+                if(ele.type === 'watch'){
+                    return ele;
+                }
+            });
+            random = user.rathers.filter((ele)=>{
+                if(ele.type === 'random'){
+                    return ele;
+                }
+            });
+            /*/
             user.rathers.forEach((ele)=>{
                 if(ele.type === 'food'){
                     food.push(ele);
@@ -268,6 +289,7 @@ router.get('/rathers',function(req, res, next) {
                     random.push(ele);
                 }
             });
+            /*/
             res.render('rathers', {foodRather: food, visitRather: visit, watchRather: watch, randomRather: random});
         });
     }else{

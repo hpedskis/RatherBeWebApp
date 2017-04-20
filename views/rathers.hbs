@@ -1,9 +1,23 @@
 <body>
 
+<div class="navbar navbar-static-top">
+    <div class="navbar-inner">
+        <a class="brand" href="/new/rather/general">New Rather</a>
+        <ul class="nav">
+            <li class="active"><a href="/">Home</a></li>
+
+        </ul>
+    </div>
+</div>
+
+<div class="alert alert-success">
 <ol class = "food">
     {{#if foodRather}}
-        <h3>Food Rathers:</h3>
+        <h3 class="alert-heading">Food Rathers:</h3>
+
+
     {{#each foodRather as |food|}}
+
         <li class = "each"> Id' MUCH rather be eating {{food.what}}
             but I can't because {{food.reason}}
             <br>
@@ -13,11 +27,12 @@
     {{/if}}
 
 </ol>
+</div>
 
-
+<div class="alert alert-info">
 <ol class = "visit">
 {{#if visitRather}}
-    <h3>Visit Rathers:</h3>
+    <h3 class="alert-heading">Visit Rathers:</h3>
     {{#each visitRather as |visit|}}
         <li class = "each2"> I'd so much rather be visiting {{visit.what}}
             but I can't because {{visit.reason}}
@@ -27,11 +42,12 @@
     {{/each}}
 {{/if}}
 </ol>
+</div>
 
-
+<div class="alert alert-warning">
 <ol class = "watch">
 {{#if watchRather}}
-    <h3>Watch Rathers:</h3>
+    <h3 class="alert-heading">Watch Rathers:</h3>
     {{#each watchRather as |watch|}}
         <li class = "each3"> I really would rather be watching {{watch.what}}
             but I can't because {{watch.reason}}
@@ -42,17 +58,18 @@
 {{/if}}
 </ol>
 
+</div>
 
-<ol class = "random">
+
+<div class="alert alert-danger">
+    <ol class = "random">
 {{#if randomRather}}
-    <h3>Random:</h3>
-    {{#each randomRather as |random|}}
-        <li class = "each4"> <img src ={{random.what}}>
-        </li>
-    {{/each}}
-{{/if}}
-</ol>
+    <h3 class="alert-heading">Random:</h3>
+        {{#each randomRather as |random|}}
+                <ul.inline> <img src ={{random.what}} class="img-rounded" width="304" height="236"> </ul.inline>
 
-<a href = "/new/rather/general"> Make another rather</a>
+        {{/each}}
+    {{/if}}
 
-</body>
+    </ol>
+</div>
