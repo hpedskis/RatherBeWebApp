@@ -18,10 +18,10 @@
 
     {{#each foodRather as |food|}}
 
-        <li class = "each"> Id' MUCH rather be eating {{food.what}}
-            but I can't because {{food.reason}}
+        <li class = "each"> Id' MUCH rather be eating <strong>{{food.what}}</strong>
+            but I can't because <strong>{{food.reason}}</strong>
             <br>
-            Plan to achieve this: {{food.plan}}
+            Plan to achieve this: <strong>{{food.plan}}</strong>
         </li>
     {{/each}}
     {{/if}}
@@ -34,10 +34,10 @@
 {{#if visitRather}}
     <h3 class="alert-heading">Visit Rathers:</h3>
     {{#each visitRather as |visit|}}
-        <li class = "each2"> I'd so much rather be visiting {{visit.what}}
-            but I can't because {{visit.reason}}
+        <li class = "each2"> I'd so much rather be visiting <strong>{{visit.what}}</strong>
+            but I can't because <strong>{{visit.reason}}</strong>
             <br>
-            plan to achieve: {{visit.plan}}
+            plan to achieve: <strong{{visit.plan}}></strong>
         </li>
     {{/each}}
 {{/if}}
@@ -49,10 +49,10 @@
 {{#if watchRather}}
     <h3 class="alert-heading">Watch Rathers:</h3>
     {{#each watchRather as |watch|}}
-        <li class = "each3"> I really would rather be watching {{watch.what}}
-            but I can't because {{watch.reason}}
+        <li class = "each3"> I really would rather be watching <strong>{{watch.what}}</strong>
+            but I can't because <strong>{{watch.reason}}</strong>
             <br>
-            plan to achieve: {{watch.plan}}
+            plan to achieve: <strong>{{watch.plan}}</strong>
         </li>
     {{/each}}
 {{/if}}

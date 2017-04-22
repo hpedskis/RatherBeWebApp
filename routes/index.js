@@ -6,7 +6,8 @@ const Rather = mongoose.model('Rather');
 const User = mongoose.model('User');
 
 const pics = ['/images/food_1.gif', '/images/food_2.gif', '/images/rando_1.gif', '/images/visit_1.gif', '/images/watch_1.gif',
-    '/images/watch_2.gif', '/images/random2.gif', '/images/random3.gif', '/images/random4.gif'];
+    '/images/watch_2.gif', '/images/random2.gif', '/images/random3.gif', '/images/random4.gif', '/images/more1.gif',
+    '/images/more2.gif','/images/more3.gif','/images/more4.gif'];
 
 
 /* GET home page. */
@@ -64,6 +65,12 @@ router.post('/login', function(req, res, next) {
 
 });
 
+router.get('/logout', function(req, res){
+    console.log('logging out');
+    req.logout();
+    res.redirect('/');
+});
+
 //new eat, new visit, new watch, new random etc
 router.post('/new/rather/general', function(req, res, next){
     console.log("inside POST new/rather/general");
@@ -101,7 +108,7 @@ router.get('/new/rather/general', function(req, res, next){
 
         } else {
             console.log('error');
-            res.render('login', {message:'to make a new rather, you must have an account'});
+            res.render('login', {message:'to make a new rather, you must have an account. Login or register below'});
         }
 
 });
@@ -112,7 +119,7 @@ router.get('/new/food', function(req, res, next) {
         res.render('food');
 
     } else {
-        res.render('error', {message: 'UH-OH... to make a new rather, you must have an account'});
+        res.render('error', {message: 'to make a new rather, you must have an account. Login or register below'});
     }
 
 });
@@ -150,7 +157,7 @@ router.get('/new/visit', function(req, res, next) {
         res.render('visit');
 
     } else {
-        res.render('error', {message: 'UH-OH... to make a new rather, you must have an account'});
+        res.render('error', {message: 'to make a new rather, you must have an account. Login or register below'});
     }
 });
 
@@ -187,7 +194,7 @@ router.get('/new/watch', function(req, res, next) {
         res.render('watch');
 
     } else {
-        res.render('error', {message: 'UH-OH... to make a new rather, you must have an account'});
+        res.render('error', {message: 'to make a new rather, you must have an account. Login or register below'});
     }
 });
 
@@ -222,7 +229,7 @@ router.post('/new/watch', function(req, res, next) {
 router.get('/new/random', function(req, res, next) {
     if(req.user){
         User.findOne({username: req.user.username}, function(err, user) {
-            let picNum = Math.floor((Math.random() * 8));
+            let picNum = Math.floor((Math.random() * 12));
             new Rather({
                 type: "random",
                 what: pics[picNum],
@@ -239,7 +246,7 @@ router.get('/new/random', function(req, res, next) {
             });
         });
     }else{
-        res.render('error', {message: 'you must login!'});
+        res.render('error', {message: 'to make a new rather you must have an account. Login or register below'});
     }
 
 });
@@ -277,23 +284,11 @@ router.get('/rathers',function(req, res, next) {
                     return ele;
                 }
             });
-            /*/
-            user.rathers.forEach((ele)=>{
-                if(ele.type === 'food'){
-                    food.push(ele);
-                } else if(ele.type === 'visit'){
-                    visit.push(ele);
-                } else if(ele.type === 'watch'){
-                    watch.push(ele);
-                }else{
-                    random.push(ele);
-                }
-            });
-            /*/
+
             res.render('rathers', {foodRather: food, visitRather: visit, watchRather: watch, randomRather: random});
         });
     }else{
-        res.render('error', {message: 'looks live you\'ve been logged out!'});
+        res.render('error', {message: 'to see your rathers you must have an account. Login or register below'});
     }
 });
 

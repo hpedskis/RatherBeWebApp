@@ -2,12 +2,14 @@
 <div class="hero-unit">
     <h1>I'd Rather Be</h1>
     <p>Welcome to I'd rather be, where you can conveniently keep track of all the things you'd rather be doing, eating,
-        watching, or visiting than whatever you're currently doing. Login or create an account to get started!</p>
+        watching, or visiting than whatever you're currently doing.</p>
     {{#if user}}
-        <h3>Welcome {{user.username}}</h3>
+        <h3>Welcome back {{user.username}}</h3>
 
         <a href="rathers" class="btn btn-primary btn-large">Click here to see all your Rathers</a>
+        <a href="logout">or logout</a>
 {{else}}
+        <p>Login or create an account to get started!</p>
     <p>
         <a href="register" class="btn btn-primary btn-medium">
             Register

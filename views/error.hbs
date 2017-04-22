@@ -1,5 +1,13 @@
-<h1>{{message}}</h1>
-<h2>{{error.status}}</h2>
-<pre>{{error.stack}}</pre>
-
-<a href="/register">register</a> or <a href="/login">login</a>
+<div class="hero-unit">
+{{#if message}}
+    <div class="alert alert-error">
+        {{message}}
+    </div>
+{{/if}}
+    <a href="/register" class="btn btn-primary btn-medium">
+        Register
+    </a>
+    <a href="/login" class="btn btn-primary btn-medium">
+        Login
+    </a>
+</div>
