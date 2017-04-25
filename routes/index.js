@@ -164,7 +164,7 @@ router.get('/new/visit', function(req, res, next) {
 router.post('/new/visit', function(req, res, next) {
     console.log('inside POST /new/visit boutta POST IT');
     console.log(req.user);
-    console.log('**name of place is: ' + req.body.what);
+    console.log('**plan for place is: ' + req.body.plan);
     User.findOne({username: req.user.username}, function(err, user){
         new Rather({
             type: "visit",
